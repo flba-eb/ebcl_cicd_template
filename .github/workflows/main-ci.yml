@@ -18,9 +18,13 @@ jobs:
           context: .
           cache-from: type=gha
           cache-to: type=gha,mode=max
+      - name: Checkout tools repo
+        uses: actions/checkout@v4
+        with:
+          repository: eclipse-zenoh/zenoh
+          path: zenoh
+          ref: '0.11.0'
 
-#      - name: Checkout
-#        uses: actions/checkout@v4
-#      - name: test
-#        run: |
-#          docker build .
+     - name: test
+       run: |
+         ./test-zenoh.sh

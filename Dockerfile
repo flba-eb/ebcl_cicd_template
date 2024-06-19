@@ -11,7 +11,7 @@ RUN \
     cd /build && \
     git clone https://github.com/Elektrobit/ebcl_template.git -b preview workspace
 
-#RUN bash -ec "source /build/scripts/env.sh && cross_build_image.sh /build/workspace/images/qemu-crinit-aarch64/appliance.kiwi"
+RUN bash -ec "source /build/scripts/env.sh && cross_build_image.sh /build/workspace/images/qemu-crinit-aarch64/appliance.kiwi"
 #RUN bash -ec "source /build/scripts/env.sh && cross_build_sysroot.sh /build/workspace/images/qemu-crinit-aarch64/appliance_sysroot.kiwi"
 
 # This installs Rust version 1.72.0 as required by zenoh

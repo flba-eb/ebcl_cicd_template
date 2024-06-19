@@ -1,0 +1,18 @@
+ame: Main Branch CI
+
+# For all pushes to the main branch run the tests and push the image to the
+# GitHub registry under an edge tag so we can use it for the nightly
+# integration tests
+on:
+  push:
+    branches: main
+
+jobs:
+  docker:
+    ns-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: test
+        run: |
+          docker build .

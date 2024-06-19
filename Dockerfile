@@ -15,5 +15,5 @@ RUN \
 #RUN bash -ec "source /build/scripts/env.sh && cross_build_sysroot.sh /build/workspace/images/qemu-crinit-aarch64/appliance_sysroot.kiwi"
 
 # This installs Rust version 1.72.0 as required by zenoh
-#RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain 1.72.0 -y && \
-#    . "$HOME/.cargo/env" && rustup target add aarch64-unknown-linux-gnu
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain 1.72.0 -y && \
+   . "$HOME/.cargo/env" && rustup target add aarch64-unknown-linux-gnu

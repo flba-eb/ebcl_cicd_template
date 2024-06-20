@@ -20,7 +20,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           load: true
-      - name: Checkout tools repo
+      - name: Checkout zenoh
         uses: actions/checkout@v4
         with:
           repository: eclipse-zenoh/zenoh
@@ -31,4 +31,9 @@ jobs:
           set -x
           echo "Using image ID: ${{ steps.ebcl_image.outputs.imageid }}"
           echo "Local host: $(uname -a)"
-          docker run -v $(realpath zenoh):/src ${{ steps.ebcl_image.outputs.imageid }} ./test-zenoh.sh
+          time docker run \
+            -v $(realpath zenoh):/src \
+            -v $(realpath test-zenoh.sh):/test-zenoh.sh \
+            -e "CI_COMMAND=pwd;ls;/test-zenoh.sh" \
+            ${{ steps.ebcl_image.outputs.imageid }}
+          echo "Result: $?"

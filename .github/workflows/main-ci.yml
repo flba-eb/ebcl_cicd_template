@@ -27,4 +27,5 @@ jobs:
           ref: '0.11.0'
       - name: test Zenoh
         run: |
+          docker image ls
           ./test-zenoh.sh

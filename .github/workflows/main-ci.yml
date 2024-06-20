@@ -18,7 +18,7 @@ jobs:
         with:
           context: .
           cache-from: type=gha
-          cache-to: type=gha,mode=max
+          cache-to: type=gha,mode=max,compression=zstd
           load: true
       - name: Checkout zenoh
         uses: actions/checkout@v4

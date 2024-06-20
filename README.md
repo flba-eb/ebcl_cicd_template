@@ -1,4 +1,5 @@
 # Example for automatically building for EB corbos Linux (EBcL) and testing on it
+[![Main Branch CI example](https://github.com/flba-eb/ebcl_cicd_template/actions/workflows/main-ci.yml/badge.svg)](https://github.com/flba-eb/ebcl_cicd_template/actions/workflows/main-ci.yml)
 
 ## Notes
 
@@ -18,6 +19,6 @@ A container is created which contains a sysroot and image:
     - Previously generated container is used
     - It compiles for the target and runs tests on them
     - Target is a QEMU image, simulating an aarch64 CPU
-    - Tests are executed on target using the script `scripts/run_on_targetr.sh`, which
+    - Tests are executed on target using the script [run_on_target.sh](scripts/run_on_target.sh), which
         uploads the file and runs it.
     - WARNING: It only executes one (small) unit test to reduce the disk usage. Standard Github action runners run out of space otherwise.

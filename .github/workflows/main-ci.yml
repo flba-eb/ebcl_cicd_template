@@ -30,11 +30,9 @@ jobs:
         run: |
           set -x
           echo "Using image ID: ${{ steps.ebcl_image.outputs.imageid }}"
-          echo "Local host: $(uname -a)"
           sudo chown -R 1000 zenoh
           time docker run \
             -v $(realpath zenoh):/src \
             -v $(realpath test-zenoh.sh):/test-zenoh.sh \
             -e "CI_COMMAND=pwd;ls;/test-zenoh.sh" \
             ${{ steps.ebcl_image.outputs.imageid }}
-          echo "Result: $?"

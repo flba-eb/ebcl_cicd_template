@@ -28,8 +28,7 @@ jobs:
           ref: '0.11.0'
       - name: test Zenoh
         run: |
-          docker image ls
-          echo "${{ steps.ebcl_image.outputs.imageid }}"
-          uname -a
-          docker run ${{ steps.ebcl_image.outputs.imageid }} uname -a
-          ./test-zenoh.sh
+          set -x
+          echo "Using image ID: ${{ steps.ebcl_image.outputs.imageid }}"
+          echo "Local host: $(uname -a)"
+          docker run -v $(realpath zenoh):/src ${{ steps.ebcl_image.outputs.imageid }} ./test-zenoh.sh

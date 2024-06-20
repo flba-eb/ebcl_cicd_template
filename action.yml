@@ -1,8 +1,0 @@
-name: Run EBcL compatibility test
-description: Run EBcL compatibility test
-author: flba
-
-runs:
-  using: docker
-  image: Dockerfile
-

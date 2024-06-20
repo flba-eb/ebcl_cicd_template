@@ -1,5 +1,8 @@
 #!/bin/bash -ex
 
+# todo: move to Dockerfile
+rustup target add aarch64-unknown-linux-gnu
+
 echo '
 [target.aarch64-unknown-linux-gnu]
 linker = "/usr/bin/aarch64-linux-gnu-gcc-11"

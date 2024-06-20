@@ -17,5 +17,9 @@ cd /src
 ssh target "mkdir -p /tmp/test/a/b"
 scp DEFAULT_CONFIG.json5 target:/tmp/test
 
+# Run tests
+if [[ "$*" == *"--only-one-test"* ]] ; then
+    # only run one small test, as we would run out of disk space otherwise (on standard Github action runners)
+    cd commons/zenoh-buffers
+fi
 cargo t --target aarch64-unknown-linux-gnu
-cargo b --target aarch64-unknown-linux-gnu

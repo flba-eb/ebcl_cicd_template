@@ -11,6 +11,9 @@ linker = "/usr/bin/aarch64-linux-gnu-gcc-11"
 rustflags = ["-C", "link-args=--sysroot /build/sysroot_aarch64/"]
 ' >> ~/.cargo/config.toml
 
+ls -lha /
+whoami
+
 cd /src
 # todo: properly install toolchain first
 rm rust-toolchain.toml

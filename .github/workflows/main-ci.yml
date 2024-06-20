@@ -31,6 +31,7 @@ jobs:
           set -x
           echo "Using image ID: ${{ steps.ebcl_image.outputs.imageid }}"
           echo "Local host: $(uname -a)"
+          chown 1000 zenoh
           time docker run \
             -v $(realpath zenoh):/src \
             -v $(realpath test-zenoh.sh):/test-zenoh.sh \

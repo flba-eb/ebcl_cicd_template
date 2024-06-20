@@ -1,5 +1,7 @@
 #!/bin/bash -ex
 
+source /build/scripts/env.sh
+
 # todo: move to Dockerfile
 rustup target add aarch64-unknown-linux-gnu
 

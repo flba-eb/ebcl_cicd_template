@@ -10,4 +10,6 @@ rustflags = ["-C", "link-args=--sysroot /build/sysroot_aarch64/"]
 ' >> ~/.cargo/config.toml
 
 cd zenoh
+# todo: properly install toolchain first
+rm rust-toolchain.toml
 cargo b --target aarch64-unknown-linux-gnu

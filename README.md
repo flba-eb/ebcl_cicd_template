@@ -21,4 +21,4 @@ A container is created which contains a sysroot and image:
     - Target is a QEMU image, simulating an aarch64 CPU
     - Tests are executed on target using the script [run_on_target.sh](scripts/run_on_target.sh), which
         uploads the file and runs it.
-    - WARNING: It only executes one (small) unit test to reduce the disk usage. Standard Github action runners run out of space otherwise.
+    - The zenoh build configuration is slightly changed to reduce disk space usage (especially debug symbols are disabled, see [patch](./zenoh-patch.diff) for details)

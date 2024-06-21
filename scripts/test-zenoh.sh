@@ -17,9 +17,24 @@ cd /src
 ssh target "mkdir -p /tmp/test/a/b"
 scp DEFAULT_CONFIG.json5 target:/tmp/test
 
+# The runners sometimes run out of disk space, which is why it is monitored:
+show_res_usage () {
+    set +ex
+    sleep 10
+    while true ; do
+        sleep 60
+        echo "$(echo ============ && df -h . && du -shc target/* && echo ============)"
+    done
+}
+show_res_usage &
+RES_MONITOR=$!
+
 # Run tests
 if [[ "$*" == *"--only-one-test"* ]] ; then
     # only run one small test, as we would run out of disk space otherwise (on standard Github action runners)
     cd commons/zenoh-buffers
 fi
-cargo t --target aarch64-unknown-linux-gnu
+
+cargo t --target aarch64-unknown-linux-gnu --no-run
+kill $RES_MONITOR
+cargo t --target aarch64-unknown-linux-gnu -j1

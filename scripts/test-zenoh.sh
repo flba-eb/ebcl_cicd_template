@@ -34,4 +34,5 @@ if [[ "$*" == *"--only-one-test"* ]] ; then
     cd commons/zenoh-buffers
 fi
 
+cargo t --target aarch64-unknown-linux-gnu --no-run
 cargo t --target aarch64-unknown-linux-gnu -j1

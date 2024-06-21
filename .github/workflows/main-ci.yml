@@ -20,6 +20,7 @@ jobs:
       - name: test Zenoh
         run: |
           set -x
+          ( cd zenoh && patch -p1 < ../zenoh-patch.diff )
           sudo chown -R 1000 zenoh
           time docker run \
             -v $(realpath zenoh):/src \

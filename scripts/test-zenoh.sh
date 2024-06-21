@@ -22,4 +22,5 @@ if [[ "$*" == *"--only-one-test"* ]] ; then
     # only run one small test, as we would run out of disk space otherwise (on standard Github action runners)
     cd commons/zenoh-buffers
 fi
-cargo t --target aarch64-unknown-linux-gnu
+df -h .
+cargo t --target aarch64-unknown-linux-gnu --release

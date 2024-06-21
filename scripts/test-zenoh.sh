@@ -34,5 +34,7 @@ if [[ "$*" == *"--only-one-test"* ]] ; then
     cd commons/zenoh-buffers
 fi
 
+rustup install 1.75.0
+rustup target add aarch64-unknown-linux-gnu --toolchain 1.75.0
 cargo t --target aarch64-unknown-linux-gnu --no-run
 cargo t --target aarch64-unknown-linux-gnu -j1

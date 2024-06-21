@@ -1,6 +1,7 @@
 name: Main Branch CI example
 
 on:
+  workflow_dispatch
   push:
     branches: main
 

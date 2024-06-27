@@ -16,7 +16,7 @@ jobs:
         with:
           repository: eclipse-zenoh/zenoh
           path: zenoh
-          ref: 'release/0.11.0-dev-285-g2500e5a6'
+          ref: '0.11.0-dev-285-g2500e5a6'
       - name: test Zenoh
         run: |
           set -x

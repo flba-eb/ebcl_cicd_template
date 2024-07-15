@@ -16,7 +16,7 @@ jobs:
         with:
           repository: eclipse-zenoh/zenoh
           path: zenoh
-          ref: '1.0.0-alpha.3'
+          ref: '1.0.0-alpha.4'
       - name: test Zenoh
         run: |
           set -x

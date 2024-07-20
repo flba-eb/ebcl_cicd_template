@@ -34,7 +34,7 @@ if [[ "$*" == *"--only-one-test"* ]] ; then
     cd commons/zenoh-buffers
 fi
 
-rustup install 1.75.0
-rustup target add aarch64-unknown-linux-gnu --toolchain 1.75.0
+# Compile first in parallel, but limit RAM usage by not exeucting the tests
 cargo t --target aarch64-unknown-linux-gnu --no-run
+# Only execute one test at a time to limit RAM usage
 cargo t --target aarch64-unknown-linux-gnu -j1

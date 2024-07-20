@@ -25,5 +25,5 @@ jobs:
           time docker run \
             -v $(realpath zenoh):/src \
             -v $(realpath scripts):/scripts \
-            -e "CI_COMMAND=/scripts/setup_host.sh && /scripts/test-zenoh.sh" \
+            -e "CI_COMMAND=/scripts/run_ci.sh" \
             ghcr.io/flba-eb/ebcl_cicd_template:main

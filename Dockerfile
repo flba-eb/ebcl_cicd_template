@@ -17,6 +17,6 @@ RUN \
     du -shc /tmp/build/* /home/ebcl/.kiwi_boxes/* && \
     rm -rf /tmp/build/* /home/ebcl/.kiwi_boxes/*
 
-# This installs Rust version 1.72.0 as required by zenoh
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain 1.72.0 -y && \
+# This installs the Rust version as required by zenoh
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain 1.75.0 -y && \
    . "$HOME/.cargo/env" && rustup target add aarch64-unknown-linux-gnu

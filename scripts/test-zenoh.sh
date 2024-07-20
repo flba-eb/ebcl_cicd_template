@@ -20,13 +20,14 @@ scp DEFAULT_CONFIG.json5 target:/tmp/test
 # The runners sometimes run out of disk space, which is why it is monitored:
 show_res_usage () {
     set +ex
-    sleep 5
+    sleep 10
     while true ; do
-        sleep 10
+        sleep 60
         echo "$(echo ============ && df -h . && du -shc target/* && echo ============)"
     done
 }
 show_res_usage &
+RES_MONITOR=$!
 
 # Run tests
 if [[ "$*" == *"--only-one-test"* ]] ; then
@@ -36,5 +37,6 @@ fi
 
 # Compile first in parallel, but limit RAM usage by not exeucting the tests
 cargo t --target aarch64-unknown-linux-gnu --no-run
+kill $RES_MONITOR
 # Only execute one test at a time to limit RAM usage
 cargo t --target aarch64-unknown-linux-gnu -j1

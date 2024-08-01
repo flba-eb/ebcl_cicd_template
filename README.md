@@ -3,7 +3,7 @@
 
 ## Notes
 
-This is not an official EB product/project.
+This is not an official Elektrobit product/project.
 
 ## Overview
 

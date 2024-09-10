@@ -26,4 +26,4 @@ jobs:
             -v $(realpath zenoh):/src \
             -v $(realpath scripts):/scripts \
             -e "CI_COMMAND=/scripts/run_ci.sh" \
-            ghcr.io/flba-eb/ebcl_cicd_template@sha256:abdf5c8e78ac53dc1f94022e68c72e5e5ceb6344c1ccad19995616366e9bc004
+            ghcr.io/flba-eb/ebcl_cicd_template:sdk_preview_4

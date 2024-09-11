@@ -1,4 +1,4 @@
-FROM linux.elektrobit.com/ebcl/sdk:1.1.1_preview_2
+FROM linux.elektrobit.com/ebcl/sdk:1.1.1_preview_4
 
 # sshpass is required to access the OS (image running in QEMU) without typing the password manually
 RUN sudo apt-get update && sudo apt-get install -y \

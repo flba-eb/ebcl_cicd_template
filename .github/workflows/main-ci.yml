@@ -16,7 +16,7 @@ jobs:
         with:
           repository: eclipse-zenoh/zenoh
           path: zenoh
-          ref: '1.0.0-alpha.6'
+          ref: '1.0.0-beta.2'
       - name: test Zenoh
         run: |
           set -x
@@ -26,4 +26,4 @@ jobs:
             -v $(realpath zenoh):/src \
             -v $(realpath scripts):/scripts \
             -e "CI_COMMAND=/scripts/run_ci.sh" \
-            ghcr.io/flba-eb/ebcl_cicd_template:main
+            ghcr.io/flba-eb/ebcl_cicd_template:sdk_preview_4
